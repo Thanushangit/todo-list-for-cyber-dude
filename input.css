@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.input_style{
+    @apply w-full outline-0 py-2 px-4 my-2 shadow bg-gray-200;
+}
