@@ -4,46 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <title>To do App</title>
   </head>
   <body class="bg-purple-900">
-    <div class="max-w-3xl rounded mx-auto p-4 bg-gray-50 mt-10">
+    <form
+      action=""
+      id="inputform"
+      class="max-w-3xl rounded mx-auto p-4 bg-gray-50 mt-10"
+    >
       <h1 class="font-semibold mb-2">
         Request a Courier Pickup!
         <span class="p-1 bg-purple-200 rounded text-xs">NEW</span>
       </h1>
-      <div class="flex justify-between gap-3">
+
+      <div class="flex gap-2">
+        <div class="w-1/2">
+          <input
+            class="input_style"
+            type="text"
+            placeholder="Name"
+            id="userName"
+            name="userName"
+          />
+        </div>
+        <div class="w-1/2">
+          <input
+            class="input_style"
+            type="tel"
+            id="userTel"
+            placeholder="Mobile Number"
+            name="userTel"
+            required
+          />
+        </div>
+      </div>
+
+      <div>
         <input
-          class="w-1/2 outline-0 py-2 px-4 my-2 shadow bg-gray-200"
-          type="text"
-          placeholder="Name"
-          id="userName"
-        />
-        <input
-          class="w-1/2 outline-0 py-2 px-4 my-2 shadow bg-gray-200"
-          type="tel"
-          id="userTel"
-          placeholder="Mobile Number"
+          class="input_style"
+          type="datetime-local"
+          id="userDate"
+          name="userDate"
+          required
         />
       </div>
-      <input class="input_style" type="datetime-local" id="userDate" />
-      <textarea
-        class="input_style"
-        id="userAddress"
-        placeholder="Enter your pickup address"
-      ></textarea>
+
+      <div>
+        <textarea
+          class="input_style"
+          id="userAddress"
+          placeholder="Enter your pickup address"
+          name="userAddress"
+          required
+        ></textarea>
+      </div>
       <div class="flex gap-2">
-        <input type="checkbox" />
+        <input type="checkbox" id="condition" name="condition" />
         <p class="whitespace-nowrap">I accept all terms and conditions.</p>
       </div>
       <button
         class="py-2 px-4 w-full bg-purple-500 rounded my-3 font-semibold text-white hover:bg-purple-600 transition cursor-pointer"
+        id="pickupbtn"
       >
         Create Pickup
       </button>
-    </div>
+    </form>
 
-    <div class="max-w-6xl rounded mx-auto p-4 bg-gray-50 my-10 overflow-x-scroll">
+    <div
+      class="max-w-6xl rounded mx-auto p-4 bg-gray-50 my-10 overflow-x-scroll"
+    >
       <h1 class="font-semibold flex items-center gap-1">
         Courier Requests
         <span
@@ -75,15 +105,16 @@
             </button>
           </td>
         </tr>
-        <tr class="bg-zinc-200 rounded cursor-pointer hover:bg-zinc-300">
-          <td class="py-3 px-2">1</td>
-          <td class="py-3 px-2">Thanushan</td>
-          <td class="py-3 px-2">0764867457</td>
-          <td class="py-3 px-2">03,Apr - 2025, 11.36 am</td>
-          <td class="py-3 px-2">Punnalaikkadduvan</td>
-          <td class="py-3 px-2"><button>Delete</button></td>
-        </tr>
       </table>
     </div>
+
+    <script src="./main.js"></script>
   </body>
 </html>
+
+<!-- const userNameE1 = document.getElementById("")
+const userTelE1 = document.getElementById("userTel")
+const userDate = document.getElementById("userDate")
+const userAddress = document.getElementById("userAddress")
+const userCodition = document.getElementById("condition")
+const pickupbtn = document.getElementById("pickupbtn") -->
