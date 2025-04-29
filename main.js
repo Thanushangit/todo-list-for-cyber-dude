@@ -1,74 +1,16 @@
+// const userNameE1 = document.getElementById("")
+// const userTelE1 = document.getElementById("userTel")
+// const userDate = document.getElementById("userDate")
+// const userAddress = document.getElementById("userAddress")
+// const userCodition = document.getElementById("condition")
+// const pickupbtn = document.getElementById("pickupbtn")
 
+// const formE1= document.getElementById('inputform',{
+//   validateBeforeSubmitting:true,
+// })
 
-const validator = new JustValidate('#inputform');
+// const validateForm = new JustValidate(formE1);
 
-
-
-validator
-    .addField('#userName', [
-      {
-        rule: 'required',
-      },
-      {
-        rule: 'minLength',
-        value: 3,
-      },
-      {
-        rule: 'maxLength',
-        value: 15,
-      },
-    ],{
-        errorLabelCssClass: ['error_label'],
-      });
-
-
-      validator
-    .addField('#userTel', [
-      {
-        rule: 'required',
-      },
-      {
-        rule: 'number',
-      },
-      {
-        rule: 'minLength',
-        value: 10,
-      },
-      {
-        rule: 'maxLength',
-        value: 10,
-      },
-    ],{
-        errorLabelCssClass: ['error_label'],
-      });
-
-
-      validator
-      .addField('#userDate', [
-        {
-          rule: 'required',
-        }
-      ],{
-          errorLabelCssClass: ['error_label'],
-        });
-
-    
-
-    validator
-    .addField('#userAddress', [
-      {
-        rule: 'required',
-      },
-      {
-        rule: 'minLength',
-        value: 10,
-      },
-      {
-        rule: 'maxLength',
-        value: 50,
-      },
-    ],{
-        errorLabelCssClass: ['error_label'],
-      });
-
-
+// formE1.addEventListener("click", {
+//   validateForm.onSuccess()
+// })
