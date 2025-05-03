@@ -24,17 +24,17 @@ validator
       {
         rule: 'required',
       },
-      {
-        rule: 'number',
-      },
-      {
-        rule: 'minLength',
-        value: 10,
-      },
-      {
-        rule: 'maxLength',
-        value: 10,
-      },
+      // {
+      //   rule: 'number',
+      // },
+      // {
+      //   rule: 'minLength',
+      //   value: 10,
+      // },
+      // {
+      //   rule: 'maxLength',
+      //   value: 10,
+      // },
     ],{
         errorLabelCssClass: ['error_label'],
       });
@@ -47,6 +47,16 @@ validator
       ],{
           errorLabelCssClass: ['error_label'],
         });
+
+        validator
+    .addField('#condition', [
+      {
+        rule: 'required',
+        errorMessage:"You should accept terms & condition."
+      }
+    ],{
+        errorLabelCssClass: ['error_label'],
+      });
 
     validator
     .addField('#userAddress', [
@@ -66,12 +76,47 @@ validator
       });
 
 
+      const displyTable = document.getElementById('displyTable');
+
       validator.onSuccess(() =>{
         const formData = new FormData(formE1)
 
-        for(let data of formData.values()){
-          console.log(data)
-        }
+        const dataObj= Object.fromEntries(formData.entries());
+
+        localStorage.setItem("courierData", JSON.stringify(dataObj))
+
+       
+
+        let localStorageData=[];
+
+        localStorageData.push(JSON.parse(localStorage.getItem("courierData")))
+
+        console.log(localStorageData);
+
+        localStorageData.map((data) => {
+
+          displyTable.innerHTML=`
+          <tr class="bg-zinc-200 rounded cursor-pointer hover:bg-zinc-300">
+          <td class="py-3 px-4">1</td>
+          <td class="py-3 px-4">${data.userName}</td>
+          <td class="py-3 px-4">0764867457</td>
+          <td class="py-3 px-4 whitespace-nowrap">03,Apr - 2025, 11.36 am</td>
+          <td class="py-3 px-4">Punnalaikkadduvan</td>
+          <td class="py-3 px-4">
+            <button
+              class="bg-red-500 hover:bg-red-600 transition cursor-pointer py-1 px-2 font-semibold text-white shadow-2xl rounded text-sm"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        
+        `
+        })
+        
+
+        
+        
         
       })
 
